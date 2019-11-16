@@ -1,1 +1,1 @@
-# bootcamp-gostack-desafio-02
+# bootcamp-modulo-2
