@@ -40,6 +40,10 @@ class UserController {
         .when('oldPassword', (oldPassword, field) => {
           return oldPassword ? field.required() : field;
         }),
+      confirmPassword: Yup.string().when('password', (password, field) => {
+        const passwordRef = Yup.ref('password');
+        return password ? field.required().oneOf([passwordRef]) : field;
+      }),
     });
 
     if (!(await schema.isValid(req.body))) {
